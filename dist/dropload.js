@@ -56,7 +56,9 @@
 
         // 如果加载下方，事先在下方插入DOM
         if(me.opts.loadDownFn != ''){
-            me.$element.append('<div class="'+me.opts.domDown.domClass+'">'+me.opts.domDown.domRefresh+'</div>');
+            if ($('.' + me.opts.domDown.domClass, me.$element).length <= 0) {
+                me.$element.append('<div class="'+me.opts.domDown.domClass+'">'+me.opts.domDown.domRefresh+'</div>');
+            }
             me.$domDown = $('.'+me.opts.domDown.domClass);
         }
 
